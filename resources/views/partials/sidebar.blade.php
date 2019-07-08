@@ -12,6 +12,16 @@
                     Asset Types list
                 </a>
             </div>
+            <div class="col-12">
+                <a href="{{ route('dashboard.partners.index') }}">
+                    Partners List
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="{{ route('dashboard.partners.create') }}">
+                    Partners Create
+                </a>
+            </div>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
 
@@ -22,17 +22,18 @@
         }
 
     </style>
-
+    
     @stack('styles')
 
     <title>JP-FSM | @yield('title')</title>
   </head>
   <body>
+    
     @include('partials.sidebar')
     <div class="wrapper">
         @yield('content')
     </div>
-
+    <script src="{{ asset('/js/app.js') }}"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{ asset('/js/jquery.min.js') }}"></script>

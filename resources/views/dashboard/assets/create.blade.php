@@ -13,7 +13,7 @@
                             <h3 class="text-center">Assets</h3>
                             <div class="form-group">
                                 <label for="asset">Name</label>
-                                <input type="asset" class="form-control" id="asset" placeholder="asset" name="asset">
+                                <input type="text" class="form-control" id="asset" placeholder="asset" name="asset">
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-success">Create</button>

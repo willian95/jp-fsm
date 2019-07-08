@@ -29,4 +29,25 @@ Route::group(['prefix' => 'dashboard'], function(){
 
     });
 
+    Route::group(['prefix' => 'partners'], function(){
+
+        Route::get('/index', 'PartnersController@index')->name('dashboard.partners.index');
+        Route::get('/get/all', 'PartnersController@getAll')->name('dashboard.partners.get.all');
+        Route::get('/create', 'PartnersController@create')->name('dashboard.partners.create');
+        Route::post('/store', 'PartnersController@store')->name('dashboard.partners.store');
+
+
+    });
+
+});
+
+Route::group(['prefix' => 'api'], function(){
+
+	Route::get('/states/all', 'AddressesController@allStates');
+	Route::get('/counties/all', 'AddressesController@allCounties');
+	Route::get('/cities/all', 'AddressesController@allCities');
+
+	Route::get('/counties/state_id/{id}', 'AddressesController@countyByStateId');
+	Route::get('/cities/county_id/{id}', 'AddressesController@cityByCountyId');
+
 });
