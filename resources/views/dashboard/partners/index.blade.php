@@ -29,6 +29,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Address</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +38,11 @@
                                     <td>@{{ partner.name }}</td>
                                     <td>@{{ partner.phone }}</td>
                                     <td>@{{ partner.address }}</td>
+                                    <td>
+                                        <button class="btn btn-info" data-toggle="modal" data-target="#infoModal" @click="getStatesCovered(partner.id)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -45,6 +51,29 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">States Covered</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p v-for="state in statesCovered">
+                            @{{ state.state_name }}
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 @endsection
@@ -57,6 +86,7 @@
             data(){
                 return {
                     partners:[],
+                    statesCovered:[]
                 }
             },
            
@@ -67,6 +97,15 @@
                     axios.get("{{ route('dashboard.partners.get.all') }}").then(response => {
 
                         this.partners = response.data.partners
+                    })
+
+                },
+                getStatesCovered(id){
+
+                    axios.get("{{ url('/dashboard/partners/statesCovered/') }}"+"/"+id).then(response => {
+
+                        this.statesCovered = response.data.statesCovered
+                    
                     })
 
                 }

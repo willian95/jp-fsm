@@ -35,7 +35,7 @@ Route::group(['prefix' => 'dashboard'], function(){
         Route::get('/get/all', 'PartnersController@getAll')->name('dashboard.partners.get.all');
         Route::get('/create', 'PartnersController@create')->name('dashboard.partners.create');
         Route::post('/store', 'PartnersController@store')->name('dashboard.partners.store');
-
+        Route::get('/statesCovered/{id}', 'PartnersController@getStatesCovered')->name('dashboard.partners.statesCovered.get');
 
     });
 

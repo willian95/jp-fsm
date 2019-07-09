@@ -6,8 +6,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card">
+            <div class="col-md-8 offset-md-2">
+                <div class="card" style="margin-top: 2rem;">
                     <div class="card-body">
                         <form action="{{ route('login') }}" method="post">
                             @csrf

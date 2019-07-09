@@ -38,6 +38,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://kit.fontawesome.com/14261d9bfc.js"></script>
     @stack('scripts')
   </body>
 </html>

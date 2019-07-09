@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Partner;
+use App\State;
 use App\PartnerStatesCovered;
 
 class PartnersController extends Controller
@@ -46,6 +47,25 @@ class PartnersController extends Controller
 		}
 
 		return response()->json(['success' => true, 'message' => 'Partner created']);
+
+	}
+
+	function getStatesCovered($id){
+
+		$data = PartnerStatesCovered::where('partner_id', $id)->get();
+		$statesCovered = [];
+		foreach ($data as $dat) {
+			
+			$state = State::find($dat->state_id);
+
+			$statesCovered[] = [
+				"state_name" => $state->nombre
+			];
+
+		}
+
+		return response()->json(['statesCovered' => $statesCovered]);
+
 
 	}
 
