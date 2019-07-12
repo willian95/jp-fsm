@@ -177,7 +177,7 @@
                         
                         if(response.data.success == true){
 
-                            alert(response.message)
+                            alert(response.data.message)
 
                         }else{
 
