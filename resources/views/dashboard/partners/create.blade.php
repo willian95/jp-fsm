@@ -20,7 +20,6 @@
             <div class="col-md-10 offset-md-1">
                 <div class="card">
                     <div class="card-body">
-                        
                         <h3 class="text-center">Partners</h3>
                         <div class="form-group">
                             <label for="asset">Name</label>
