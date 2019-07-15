@@ -39,6 +39,23 @@ Route::group(['prefix' => 'dashboard'], function(){
 
     });
 
+    Route::group(['prefix' => 'users'], function(){
+
+        Route::get('/index', 'UsersController@index')->name('dashboard.users.index');
+        Route::get('/get/users', 'UsersController@getUsers')->name('dashboard.users.get.users');
+        Route::post('/store', 'UsersController@store')->name('dashboard.users.store');
+        Route::post('/delete/{id}', 'UsersController@delete')->name('dashboard.users.delete');
+
+    });
+
+    Route::group(['prefix' => 'FE'], function(){
+
+        Route::get('/index', 'FEController@index')->name('dashboard.FE.index');
+        Route::get('/get/fe', 'FEController@getFE')->name('dashboard.FE.get.fe');
+        Route::post('/store', 'FEController@store')->name('dashboard.FE.store');
+
+    });
+
 });
 
 Route::group(['prefix' => 'api'], function(){
@@ -49,5 +66,7 @@ Route::group(['prefix' => 'api'], function(){
 
 	Route::get('/counties/state_id/{id}', 'AddressesController@countyByStateId');
 	Route::get('/cities/county_id/{id}', 'AddressesController@cityByCountyId');
+
+    Route::get('/partners/all', 'PartnersController@getAll');
 
 });
